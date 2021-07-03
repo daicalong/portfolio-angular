@@ -24,3 +24,5 @@ jobs:
     steps:
       - name: Deploy via angular-cli-ghpages
         run: npm run deploy:prod
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
