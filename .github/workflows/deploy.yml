@@ -22,5 +22,5 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Build
+      - name: Deploy via angular-cli-ghpages
         run: npm run deploy:prod
