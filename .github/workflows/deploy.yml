@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Deploy via angular-cli-ghpages
-        run: npm run deploy:prod
+        run: npm run deploy:test
         env:
           AIRTABLE_API_KEY_READ: ${{ secrets.AIRTABLE_API_KEY_READ }}
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
