@@ -1,8 +1,9 @@
+---
 name: Deployment
-on:
+'on':
   push:
     branches:
-      - 'master'
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,7 +13,7 @@ jobs:
       - name: Use Node 12.x
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: 12.x
       - name: Install dependencies
         run: npm install
       - name: Build
@@ -20,7 +21,22 @@ jobs:
       - name: Deploy via angular-cli-ghpages
         run: npm run deploy:prod
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
-
-
-
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Use Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install dependencies
+        run: npm install
+      - name: Deploy via angular-cli-ghpages
+        run: npm run deploy:prod
+        env:
+          AIRTABLE_API_KEY_READ: ${{ secrets.AIRTABLE_API_KEY_READ }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
