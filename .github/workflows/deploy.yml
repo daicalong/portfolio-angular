@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: deploy_dist
-          path: docs
+          path: /docs
         - name: Archive code coverage result
         if: success()
         uses: actions/upload-artifact@v1
@@ -46,5 +46,5 @@ jobs:
         with:
           AIRTABLE_API_KEY_READ: ${{ secrets.AIRTABLE_API_KEY_READ }}
           BRANCH: master
-          FOLDER: docs
+          FOLDER: /docs
 
