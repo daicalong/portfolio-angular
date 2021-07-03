@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "build:ci": "ng build -c production --sourceMap=false --base-href /portfolio-angular/",
+    "test:ci": "ng test --watch=false --code-coverage --source-map true",
     "test": "ng test"
   },
   "private": true,
@@ -18,6 +20,7 @@
     "@angular/platform-browser": "~12.1.0",
     "@angular/platform-browser-dynamic": "~12.1.0",
     "@angular/router": "~12.1.0",
+    "airtable": "^0.11.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
