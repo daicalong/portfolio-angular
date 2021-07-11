@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = {
     prefix: '',
     purge: {
-      enabled: process.env.NODE_ENV === 'production' ? true : false,
+      enabled: true,
       content: [
         './src/**/*.{html,ts}',
       ]
