@@ -4,17 +4,17 @@ name: Build & Deployment
     branches:
       - master
 jobs:
-  container:
-    image: node:14.16
-    env:
-      NODE_ENV: production
-    ports:
-      - 80
-    volumes:
-      - my_docker_volume:/volume_mount
-    options: --cpus 1
   build:
-    runs-on: ubuntu-latest
+    container:
+      image: node:14.16
+      env:
+        NODE_ENV: production
+      ports:
+        - 80
+      volumes:
+        - my_docker_volume:/volume_mount
+      options: --cpus 1
+      runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v1
