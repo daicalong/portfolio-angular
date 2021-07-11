@@ -16,5 +16,3 @@ module.exports = {
       extend: {},
     },
 };
-
-console.log(process.env.NODE_ENV);
