@@ -10,6 +10,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
+import { SharedModule } from './shared/shared.module';
+import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { ProjectDetailsComponent } from './components/project-details/project-de
     ProjectsComponent,
     ContactComponent,
     ServicesComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    ToggleSwitchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModulesModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

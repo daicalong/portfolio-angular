@@ -1,0 +1,9 @@
+@layer components {
+    .toggle-switch {
+        @apply relative flex items-center p-2 rounded-full;
+
+        &:disabled {
+            @apply opacity-50 cursor-not-allowed;
+        }
+    }
+}
