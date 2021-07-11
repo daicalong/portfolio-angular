@@ -4,17 +4,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModulesModule } from './core/core-modules/core-modules.module';
+import { CoreModulesModule } from './core/core.module';
+import { HomeComponent } from './components/home/home.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ServicesComponent } from './components/services/services.component';
+import { ProjectDetailsComponent } from './components/project-details/project-details.component';
+import { SharedModule } from './shared/shared.module';
+import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    ProjectsComponent,
+    ContactComponent,
+    ServicesComponent,
+    ProjectDetailsComponent,
+    ToggleSwitchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModulesModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
