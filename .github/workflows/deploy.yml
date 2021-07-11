@@ -15,12 +15,10 @@ jobs:
           node-version: 12.x
       - name: Install dependencies
         run: npm install
-      - name: Generate .env
-        uses: TickX/var-to-dotenv@v1.1.1
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1
         with:
-          key: 'NODE_ENV' # [Required]
-          value: ${{secrets.NODE_ENV_PROD}} # [Required]
-          default: 'production' # [Optional] if `value` is empty, this is used instead
+          NODE_ENV: ${{ secrets.NODE_ENV_PROD }}
       - name: Build
         run: npm run build:prod
   deploy:
