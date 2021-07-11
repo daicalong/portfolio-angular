@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  airtableApiKey: 'Bearer keyZ5CpEswS5gndC1',
+  airtableApiKey: '',
 };
 
 /*
