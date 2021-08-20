@@ -196,7 +196,7 @@ const spacing = {
     '100vh': '100vh',
 };
 
-exports.config = {
+modules.exports = {
     prefix: '',
     purge: {
         enabled: process.env.NODE_ENV === 'production' ? true : false,
