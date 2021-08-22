@@ -1,15 +1,16 @@
 <header class="sticky top-0 flex w-full bg-gray-100 shadow-sm dark:bg-gray-900">
-  <nav class="flex w-full mx-auto item-center max-w-7xl gap-x-20">
-    <a routerLink="home" class="flex items-center justify-center mr-auto">
-      <i class="w-6 h-6 leading-none mdi mdi-24px mdi-home"></i>
+  <nav class="flex w-full mx-auto item-center max-w-1280 gap-x-20">
+    <a routerLink="/" class="flex items-center justify-center mr-auto">
+      <img src="./assets/logo/hatomi-logo.svg" alt="Hatomi Logo" class="w-36 h-36">
     </a>
-    <a class="py-4" *ngFor="let item of navRoutes" [routerLink]="item.path">{{item.data?.title}}</a>
+    <a class="py-20" routerLinkActive="text-blue-500" *ngFor="let item of navRoutes"
+      [routerLink]="item.path">{{item.data?.title}}</a>
   </nav>
-  <app-toggle-switch [on]="darkMode" [icon]="'mdi-lightbulb'" (toggled)="toggleDarkMode()" class="mx-4 my-auto">
+  <app-toggle-switch [on]="darkMode" [icon]="'mdi-lightbulb'" (toggled)="toggleDarkMode()" class="mx-20 my-auto">
     Dark Mode
   </app-toggle-switch>
 </header>
-<section #body class="flex flex-col flex-grow flex-shrink-0 w-full mx-auto max-w-7xl">
+<section class="flex flex-col flex-grow flex-shrink-0 w-full mx-auto">
   <router-outlet></router-outlet>
 </section>
 <!-- <button

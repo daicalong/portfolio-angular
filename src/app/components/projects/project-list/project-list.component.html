@@ -1,0 +1,28 @@
+<section class="flex flex-col p-20 gap-y-20">
+    <section class="flex w-full p-20 mx-auto max-w-1440">
+        <h1>Garlic bread with cheese: What the science tells us</h1>
+    </section>
+    <section class="flex flex-col w-full p-20 mx-auto gap-y-40 max-w-1440">
+        <section class="flex gap-x-10">
+            <button class="btn --secondary" (click)="selectedCategory = ''"
+                [class]="selectedCategory ? '--outlined': ''">All</button>
+            <ng-container *ngFor="let item of categoryList">
+                <button class="btn --primary" (click)="selectedCategory = item.id"
+                    [class]="selectedCategory != item.id ? '--outlined': ''">{{item.fields.Name}}</button>
+            </ng-container>
+        </section>
+        <div class="grid grid-cols-2 md:grid-cols-2 gap-x-80 gap-y-80">
+            <a *ngFor="let item of filterByCategory(selectedCategory); let odd = odd" class="flex flex-col group"
+                [ngClass]="{'mt-80': odd}" [routerLink]="['../details', item.id]">
+                <div class="w-full overflow-hidden h-640 rounded-xl">
+                    <img [src]="'./assets/images/gallery/cover-img.svg'"
+                        class="object-cover w-full h-auto transition-transform duration-300 group-hover:transform group-hover:scale-110" />
+                </div>
+                <article class="flex flex-col mt-40">
+                    <h5>{{item.fields.Name}}</h5>
+                    <p>{{item.fields.CreatedDate}}</p>
+                </article>
+            </a>
+        </div>
+    </section>
+</section>

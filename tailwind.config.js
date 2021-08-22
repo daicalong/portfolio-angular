@@ -1,18 +1,20 @@
-require('dotenv').config();
+const colors = require('./colors');
 
 module.exports = {
-    prefix: '',
-    purge: {
-      enabled: true,
-      content: [
-        './src/**/*.{html,ts}',
-      ]
-    },
-    darkMode: 'class', // or 'media' or 'class'
     theme: {
       extend: {},
+      colors: colors,
+      fontFamily: {
+        'display': ['Open Sans', 'ui-sans-serif'],
+        'body': ['Open Sans', 'ui-sans-serif'],
+      }
     },
     variants: {
       extend: {},
     },
+    plugins: [
+    ],
+    presets: [
+      require('custom-tailwind-config')
+    ]
 };

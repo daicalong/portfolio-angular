@@ -9,9 +9,11 @@ import { HomeComponent } from './components/home/home.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ServicesComponent } from './components/services/services.component';
-import { ProjectDetailsComponent } from './components/project-details/project-details.component';
+import { ProjectDetailsComponent } from './components/projects/project-details/project-details.component';
 import { SharedModule } from './shared/shared.module';
 import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.component';
+import { ProjectListComponent } from './components/projects/project-list/project-list.component';
+import { NgArrayPipesModule } from 'ngx-pipes';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.
     ServicesComponent,
     ProjectDetailsComponent,
     ToggleSwitchComponent,
+    ProjectListComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.
     CoreModulesModule,
     HttpClientModule,
     SharedModule,
+    NgArrayPipesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
