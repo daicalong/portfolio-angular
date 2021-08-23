@@ -5,8 +5,6 @@ import { FilterByPipe } from 'ngx-pipes';
 
 @Component({
   templateUrl: './project-list.component.html',
-  styles: [
-  ]
 })
 export class ProjectListComponent implements OnInit {
   loading: boolean = false;

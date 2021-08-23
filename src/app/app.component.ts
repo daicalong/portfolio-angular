@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   darkModeStorageName: string = 'preferDarkMode';
   darkMode: boolean = false;
   list: Project[] = [];
-  navRoutes: Routes = routes;
+  navRoutes: Routes = routes.filter(x => !x.data?.hidden);
 
   constructor(
     private _renderer: Renderer2,
