@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { HttpClient, HttpContext, HttpHeaders, HttpParams } from "@angular/common/http";
-import { AirtableApiService } from './core/services/http/airtable-api/airtable-api.service';
+import { map, filter, scan } from 'rxjs/operators'
 import { Project } from './shared/interfaces/project-list';
-import { Routes } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, Routes } from '@angular/router';
 import { routes } from './app-routing.module';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -12,17 +12,39 @@ import { routes } from './app-routing.module';
 })
 
 export class AppComponent implements OnInit {
+  title: string = 'Hatomi';
   darkModeStorageName: string = 'preferDarkMode';
   darkMode: boolean = false;
   list: Project[] = [];
-  navRoutes: Routes = routes;
+  navRoutes: Routes = routes.filter(x => !x.data?.hidden);
 
-  constructor(private _renderer: Renderer2) {
+  constructor(
+    private _renderer: Renderer2,
+    private router: Router,
+    private titleService: Title,
+    private activatedRoute: ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
     this.checkDarkMode() ? this.setDarkMode() : this.removeDarkMode();
+    this.setDynamicPageTitle();
+  }
+
+  setDynamicPageTitle(): void {
+    this.router
+      .events.pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => {
+          const child = this.activatedRoute.firstChild;
+          if (child?.snapshot.data['title']) {
+            return child.snapshot.data['title'] + ' | ' + this.title;
+          }
+          return this.title;
+        })
+      ).subscribe((title: string) => {
+        this.titleService.setTitle(title);
+      });
   }
 
   showLog(): void {
